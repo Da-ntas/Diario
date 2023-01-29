@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy, useState }  from "react";
+import { Container } from 'react-bootstrap';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import GlobalStyle from "./styles/global";
+const Login = lazy(() => import("./pages/Login"));
+const RecuperarSenha = lazy(() => import("./pages/RecuperarSenha"));
+const CriarConta = lazy(() => import("./pages/CriarConta"));
+
+const Loading = () => {
+  return(
+    <Container className="w-100 h-100">
+      <div className="dot-carousel"style={{marginTop: 100}}></div>
+    </Container>
+  )
+}
 
 function App() {
+  const [theme, setTheme] = useState(localStorage.getItem('theme'));
+  const handleThemeChange = () => {
+      localStorage.setItem('theme', theme === 'light' ? 'dark' : 'light');
+      setTheme(theme === 'light' ? 'dark' : 'light');
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <GlobalStyle theme={theme}/>
+      <Router>
+        <Routes>
+          <Route path='/' element={<></>} />
+          <Route exact path='/login' element={<Login handleThemeChange={handleThemeChange} />} />
+          <Route exact path='/senha/recuperar' element={<RecuperarSenha handleThemeChange={handleThemeChange}/>} />
+          <Route exact path='/conta/criar' element={<CriarConta handleThemeChange={handleThemeChange}/>} />
+          <Route path='*' element={<></>} />
+        </Routes>
+      </Router>
+    </Suspense>
   );
 }
 

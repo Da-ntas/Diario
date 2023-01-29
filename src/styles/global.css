@@ -1,0 +1,22 @@
+:root{
+    --background-light: linear-gradient(180deg, rgba(255, 251, 237, 0.92) 0%, #F1E5C7 91.67%);
+    --background-dark: linear-gradient(180deg, #1B262C 0.01%, #112D4E 91.67%);
+    --text-principal-light: #1B262C;
+    --text-secundario-light: #425965;
+    --text-principal-dark: #F7F6F2;
+    --text-secundario-dark: rgba(247, 246, 242, 0.7);
+    --border-light: #031625;
+    --border-dark: #F7F6F2;
+    --button: #3F72AF;
+}
+
+*{
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--background-dark);
+}

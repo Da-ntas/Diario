@@ -1,9 +1,10 @@
 import React, { Suspense, lazy, useState }  from "react";
-import { Container } from 'react-bootstrap';
+import { Container, Nav } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  Navigate
 } from "react-router-dom";
 import GlobalStyle from "./styles/global";
 const Login = lazy(() => import("./pages/Login"));
@@ -31,9 +32,9 @@ function App() {
   return (
     <Suspense fallback={<Loading />}>
       <GlobalStyle theme={theme}/>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route path='/' element={<></>} />
+          <Route path='/' element={<Navigate to="/login" replace/>} />
           <Route exact path='/login' element={<Login handleThemeChange={handleThemeChange} />} />
           <Route exact path='/senha/recuperar' element={<RecuperarSenha handleThemeChange={handleThemeChange}/>} />
           <Route exact path='/conta/criar' element={<CriarConta handleThemeChange={handleThemeChange}/>} />

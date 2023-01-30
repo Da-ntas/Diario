@@ -21,7 +21,6 @@ const Sidebar = ({setFlagSidebar, coverImage, profileImage}) => {
     const [color, setColor] = useState('');
     const handleLogout = () => {
         localStorage.clear();
-        window.location.replace('/login')
     }
 
     return(
@@ -45,19 +44,21 @@ const Sidebar = ({setFlagSidebar, coverImage, profileImage}) => {
                         <li className="item-sidebar">Informações</li>
                     </ul>
                 </Row>
-
-                <span
-                    className="position-absolute user-select-none" 
-                    style={{bottom: 25, left: 25, cursor: 'pointer', fontSize: '1.4rem'}}
-                    onClick={handleLogout}
-                >
-                    <img 
-                        src={getTheme() === 'light' ? logoutLight : logoutDark}
-                        alt="Logout"
-                        className="me-2"
-                    />
-                    Sair
-                </span>
+                <a href="/login" className={`text-${getTheme() === 'light' ? 'dark' : 'light'}`}>
+                    <span
+                        className="position-absolute user-select-none" 
+                        style={{bottom: 25, left: 25, cursor: 'pointer', fontSize: '1.4rem'}}
+                        onClick={handleLogout}
+                        href="/login"
+                    >
+                        <img 
+                            src={getTheme() === 'light' ? logoutLight : logoutDark}
+                            alt="Logout"
+                            className="me-2"
+                        />
+                        Sair
+                    </span>
+                </a>
             </Col>
             <Col md={3} lg={3} xl={3} className="blured" onClick={() => setFlagSidebar(false)}>
             </Col>

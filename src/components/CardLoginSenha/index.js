@@ -40,6 +40,7 @@ const CardLoginSenha = ({title, email, password, setPassword, setStep}) => {
                                 className="text-light btn"
                                 onClick={() => setStep(2)}
                                 disabled={!password ? true : false}
+                                href="/diario"
                             >
                                 Entrar
                             </Button>

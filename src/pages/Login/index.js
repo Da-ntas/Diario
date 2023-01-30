@@ -22,7 +22,6 @@ const Login = ({handleThemeChange}) => {
 
         if(email && password && step === 2){
             localStorage.setItem('token', (Math.random() + 1).toString(36).substring(7))
-            window.location.replace('/diario')
         }
     }, [email, password, step])
 

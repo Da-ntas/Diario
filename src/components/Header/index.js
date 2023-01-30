@@ -20,15 +20,20 @@ const Hamburger = styled.div`
 const ImgProfile = styled.div`
     width: 50px;
     height: 50px;
+    background: url(${props => props.pfImage});
+    background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 50%;
+    border: 1px solid #F7F6F2;
+    filter: drop-shadow(3px 3px 2px #1B262C);
 `
 
-const Header = ({title, type}, props) => {
+const Header = ({title, type, imageURL, user}) => {
     const [flagSidebar, setFlagSidebar] = useState(false);
 
     const theme = localStorage.getItem('theme');
     const hasIcon = ['diario', 'edit']
-    const userName = props.userName || 'usuário sem nome';
+    const userName = user || 'usuário sem nome';
 
     const getImage = () => {
         return theme === 'light' ? plusCircleLight : plusCircleDark;
@@ -58,17 +63,12 @@ const Header = ({title, type}, props) => {
                         Olá,&nbsp;<span className="text-break">{userName}</span>
                     </div>
                     <div className="d-flex justify-content-end user-info-image">
-                        <ImgProfile >
-                            <img 
-                                src={props.imageURL || 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg'} 
-                                alt="" 
-                                className="user-select-none"
-                                style={{width: 50, cursor: 'pointer'}}/>
+                        <ImgProfile pfImage={imageURL || 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg'}>
                         </ImgProfile>
                     </div>
                 </Col>
             </Row>
-            {flagSidebar ? <Sidebar setFlagSidebar={setFlagSidebar} {...props}/> : <></>}
+            {flagSidebar ? <Sidebar setFlagSidebar={setFlagSidebar}/> : <></>}
         </Fragment>
     )
 }

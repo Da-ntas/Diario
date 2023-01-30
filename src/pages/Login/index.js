@@ -7,6 +7,8 @@ import Panel from "../../components/Panel";
 const Login = ({handleThemeChange}) => {
     const [step, setStep] = useState(0);
     const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    localStorage.removeItem('token')
 
     useEffect(() => {
         if(!email && step > 0)
@@ -14,7 +16,15 @@ const Login = ({handleThemeChange}) => {
 
         if(email)
             localStorage.setItem('email', email);
-    }, [email, step])
+
+        if(email && !password && step > 1)
+            setStep(1)
+
+        if(email && password && step === 2){
+            localStorage.setItem('token', (Math.random() + 1).toString(36).substring(7))
+            window.location.replace('/diario')
+        }
+    }, [email, password, step])
 
 
     return(
@@ -23,7 +33,7 @@ const Login = ({handleThemeChange}) => {
                 step === 0 || !email ?
                 <CardLoginEmail title={"Entrar - E-mail"} setStep={setStep} setEmail={setEmail} email={email}/>
                 :
-                <CardLoginSenha title={"Entrar - Senha"} setStep={setStep} email={email}/>
+                <CardLoginSenha title={"Entrar - Senha"} setStep={setStep} email={email} password={password} setPassword={setPassword} />
             }
         </Panel>
     )

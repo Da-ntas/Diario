@@ -16,8 +16,8 @@ const GlobalStyle = createGlobalStyle`
         --card-light: #F7F6F2;
         --card-dark: #425965;
         --button: #3F72AF;
-        --placeholder-light: rgba(27, 38, 44, 0.75);
-        --placeholder-dark: rgba(247, 246, 242, 0.75);
+        --placeholder-light: rgba(27, 38, 44, 0.50);
+        --placeholder-dark: rgba(247, 246, 242, 0.50);
     }
 
     *{
@@ -163,12 +163,10 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 
-    //media
-    @media screen and (max-width: 1024px){
-        .card-full{
-            width: 75%;
-            height: 100%;
-        }
+    .text-break{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
     .card-header-emailbox:hover{
@@ -209,6 +207,76 @@ const GlobalStyle = createGlobalStyle`
     .btn{
       min-width: 8rem;
     }
+
+    //sidebar
+    .container-sidebar{
+      
+    }
+    .sidebar{
+      height: 100vh;
+      width: 400px;
+      position: absolute !important;
+      border: none;
+      border-radius: 0;
+      left: 0;
+      z-index: 8;
+      background: var(${props => props.theme === 'light' ? "--background-light" : "--background-dark"});
+    }
+    .blured{
+      height: 100vh;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(4px);
+      z-index: 6;
+    }
+
+    //media
+    @media screen and (max-width: 1024px){
+      .card-full{
+          width: 75%;
+          height: 100%;
+      }
+      .user-info{
+        display: none !important; 
+      }
+      .sidebar{
+        width: 40%;
+      }
+    }
+
+    @media screen and (max-width: 769px){
+      .sidebar{
+        width: 100%;
+        overflow: hidden;
+      }
+      .blured{
+        display: none;
+      }
+    }
+
+    .list-sidebar{
+      list-style: none;
+      font-size: 1.5rem;
+      margin-top: 25px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .item-sidebar{
+      cursor: pointer;
+      background-color: var(${props => props.theme === 'light' ? "--card-light" : "--card-dark"});
+      padding: 10px 20px;
+      border: 1px solid ${props => props.theme === 'light' ? "rgba(3, 22, 37, 0.2)" : "rgba(247, 246, 242, 0.2)"};
+      border-radius: 10px;
+    }
+
+    .item-sidebar:hover{
+      -webkit-filter: brightness(1.2);
+      filter: brightness(1.2);
+    }
+
 `
 
 export default GlobalStyle;

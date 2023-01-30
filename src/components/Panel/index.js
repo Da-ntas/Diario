@@ -3,7 +3,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 
 const Panel = ({contentOnly, ...props}) => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     return (
         <Fragment>
             { contentOnly ? (<>{props.children}</>) : 
@@ -11,10 +11,11 @@ const Panel = ({contentOnly, ...props}) => {
                 <div className="layout-wrapper layout-1 layout">
                     <div className="layout-inner">
                         <div className="layout-container">
-                        {token ? <Header /> : <></>}
+                        {token ? <Header {...props}/> : <></>}
                             <div className="container-fluid flex-grow container-p-y">
                                 {props.children}
                             </div>
+                        {/* {!token ? <Footer handleThemeChange={props.handleThemeChange}/>: <></>} */}
                         <Footer handleThemeChange={props.handleThemeChange}/>
                         </div>
                     </div>

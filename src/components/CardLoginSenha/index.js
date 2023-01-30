@@ -2,8 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Card, Row, Button, Col } from "react-bootstrap";
 import InputForm from "../InputForm";
 
-const CardLoginSenha = ({title, email, setStep}) => {
-    const [password, setPassword] = useState(null);
+const CardLoginSenha = ({title, email, password, setPassword, setStep}) => {
     const theme = localStorage.getItem('theme');
 
     return (
@@ -39,6 +38,7 @@ const CardLoginSenha = ({title, email, setStep}) => {
                                 variant="primary"
                                 type="submit"
                                 className="text-light btn"
+                                onClick={() => setStep(2)}
                                 disabled={!password ? true : false}
                             >
                                 Entrar

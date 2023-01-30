@@ -7,8 +7,8 @@ const Switcher = styled.button`
     background: transparent;
     border: 1px solid var(${props => props.theme === 'light' ? "--background-light" : "--background-dark"});
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 2%;
+    right: 1%;
 `
 
 const Footer = ({handleThemeChange}) => {

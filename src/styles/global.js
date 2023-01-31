@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
         background: var(${props => props.theme === 'light' ? "--background-light" : "--background-dark"});
         color: var(${props => props.theme === 'light' ? "--text-principal-light" : "--text-principal-dark"});
         font-size: 1rem;
-        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
 
     // Layouts

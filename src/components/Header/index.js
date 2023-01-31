@@ -41,7 +41,7 @@ const Header = ({title, type, imageURL, user}) => {
 
     return(
         <Fragment>
-            <Row md={12} xl={12} lg={12} className="w-100 p-4 position-absolute top-0 d-flex align-items-center justify-content-center flex-row" style={{zIndex: 6}}>
+            <Row md={12} xl={12} lg={12} className="w-100 p-4 position-relative top-0 d-flex align-items-center justify-content-center flex-row" style={{zIndex: 6, height: 100}}>
                 <Col md={9} xl={9} lg={9} className="d-flex align-items-center justify-content-start">
                     <div className="d-flex align-items-center justify-content-start position-absolute" style={{maxWidth: 50, top: 20, left: 20, width: '10%', zIndex: 5}}>
                         <Hamburger theme={theme} image={burger} onClick={() => setFlagSidebar(true)}/>

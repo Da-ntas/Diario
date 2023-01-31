@@ -6,7 +6,7 @@ import moon from '../../img/moon.png'
 const Switcher = styled.button`
     background: transparent;
     border: 1px solid var(${props => props.theme === 'light' ? "--background-light" : "--background-dark"});
-    position: absolute;
+    position: fixed;
     bottom: 2%;
     right: 1%;
 `

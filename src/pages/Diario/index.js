@@ -103,10 +103,7 @@ const Diario = ({handleThemeChange}) => {
             color: `#${Math.floor(Math.random()*16777215).toString(16)}`
         }
     ]
-
-    const handleClick = (e) => {
-        console.log(e)
-    }
+    
     return (
         <Panel handleThemeChange={handleThemeChange} title={'Diários'} type={'diario'} imageURL={getImage()}>
             <Row md={12} xl={12} lg={12}  className="d-flex justify-content-center position-relative mt-5 pb-4">

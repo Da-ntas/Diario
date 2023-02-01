@@ -215,7 +215,7 @@ const GlobalStyle = createGlobalStyle`
     .sidebar{
       height: 100vh;
       width: 400px;
-      position: absolute !important;
+      position: fixed !important;
       border: none;
       border-radius: 0;
       left: 0;
@@ -223,11 +223,12 @@ const GlobalStyle = createGlobalStyle`
       background: var(${props => props.theme === 'light' ? "--background-light" : "--background-dark"});
     }
     .blured{
-      height: 100vh;
+      min-height: 100vh;
       width: 100%;
       background: rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(4px);
-      z-index: 6;
+      position: fixed !important;
+      z-index: 7;
     }
 
     //media

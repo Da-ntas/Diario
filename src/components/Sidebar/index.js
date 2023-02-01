@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Row, Col } from 'react-bootstrap';
 import logoutDark from '../../img/log-out-dark.svg';
 import logoutLight from '../../img/log-out-light.svg';
@@ -18,7 +18,6 @@ const ProfileDiv = styled.div`
 `
 
 const Sidebar = ({setFlagSidebar, coverImage, profileImage}) => {
-    const [color, setColor] = useState('');
     const handleLogout = () => {
         localStorage.clear();
     }

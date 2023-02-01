@@ -277,6 +277,12 @@ const GlobalStyle = createGlobalStyle`
       filter: brightness(1.2);
     }
 
+    //diario-titulo
+    .diario-titulo{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }    
 `
 
 export default GlobalStyle;

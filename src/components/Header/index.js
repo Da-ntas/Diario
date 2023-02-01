@@ -41,12 +41,12 @@ const Header = ({title, type, imageURL, user}) => {
 
     return(
         <Fragment>
-            <Row md={12} xl={12} lg={12} className="w-100 p-4 position-relative top-0 d-flex align-items-center justify-content-center flex-row" style={{zIndex: 6, height: 100}}>
+            <Row md={12} xl={12} lg={12} className="w-100 p-4 position-relative d-flex align-items-center justify-content-center flex-row" style={{zIndex: 6, height: 100, top: 0}}>
                 <Col md={9} xl={9} lg={9} className="d-flex align-items-center justify-content-start">
                     <div className="d-flex align-items-center justify-content-start position-absolute" style={{maxWidth: 50, top: 20, left: 20, width: '10%', zIndex: 5}}>
                         <Hamburger theme={theme} image={burger} onClick={() => setFlagSidebar(true)}/>
                     </div>
-                    <Col className="d-flex align-items-center justify-content-center position-absolute" style={{maxWidth: 500, top: 20, left: 20, right: 0, marginLeft: 'auto', marginRight: 'auto', zIndex: 4}}>
+                    <Col className="d-flex align-items-center justify-content-center position-absolute flex-column" style={{maxWidth: 500, top: 20, left: 20, right: 0, marginLeft: 'auto', marginRight: 'auto', zIndex: 4}}>
                         <Row className="d-flex">
                             <Col className="mt-1 ml-">
                                 <h1>{title || "Diarios"}</h1>
@@ -55,7 +55,7 @@ const Header = ({title, type, imageURL, user}) => {
                                 {hasIcon.includes(type) ? <img src={type === 'diario' ? getImage() : edit} alt="" style={{width: 30, cursor: 'pointer'}}/> : <></>}
                             </Col>
                         </Row>
-                        <hr />
+                        <Row className="w-50"><hr /></Row>
                     </Col>
                 </Col>
                 <Col md={3} xl={3} lg={3} className="d-flex justify-content-end user-info position-absolute" style={{top: 20, right: 20}}>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import sun from '../../img/sun.png'
-import moon from '../../img/moon.png'
+import sun from '../../img/sun.svg'
+import moon from '../../img/moon.svg'
 
 const Switcher = styled.button`
     background: transparent;

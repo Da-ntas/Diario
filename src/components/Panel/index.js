@@ -10,9 +10,9 @@ const Panel = ({contentOnly, ...props}) => {
             (
                 <div className="layout-wrapper layout-1 layout">
                     <div className="layout-inner">
+                    {token ? <Header {...props}/> : <></>}
                         <div className="layout-container">
-                        {token ? <Header {...props}/> : <></>}
-                            <div className="container-fluid flex-grow container-p-y">
+                            <div className="container-fluid flex-grow container-p-y h-100">
                                 {props.children}
                             </div>
                         {/* {!token ? <Footer handleThemeChange={props.handleThemeChange}/>: <></>} */}

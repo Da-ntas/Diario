@@ -17,7 +17,7 @@ const Footer = ({handleThemeChange}) => {
     return (
         <>
         {/* <Row md={12} lg={12} xl={12} className="w-100 position-absolute top-100 d-flex justify-content-end"> */}
-            <Switcher theme={theme} onClick={handleThemeChange}>
+            <Switcher theme={theme} onClick={handleThemeChange} className="user-select-none">
                 <img src={theme === 'light' ? moon : sun} alt="theme switcher"/>
             </Switcher>
         {/* </Row> */}

@@ -21,7 +21,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     *{
-        font-family: 'Permanent Marker', cursive, 'Roboto', sans-serif;
+      // font-family: 'Permanent Marker', cursive, 'Roboto', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
     }
 
     body {

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Row, Card, Button } from "react-bootstrap";
 import InputForm from "../InputForm";
+import { getTheme } from "../../utils";
 
 const CardRecuperarSenha = ({step, setStep}) => {
     const [codigo, setCodigo] = useState(null);
     const [newPassword, setNewPassword] = useState(null);
     const [confirmNewPassword, setConfirmNewPassword] = useState(null);
-    const email = localStorage.getItem('email');
+    let theme = getTheme();
 
     useEffect(() => {
         if(!codigo && step > 0)
@@ -18,7 +19,7 @@ const CardRecuperarSenha = ({step, setStep}) => {
             <Card className="border card-full px-0 border-none">
                 <Card.Header className="card-header">
                     <Row md={12} xl={12} lg={12}>Altere sua senha</Row>
-                    {step === 0 || !codigo ? <Row md={12} xl={12} lg={12} className="card-header-emailbox my-2">{email}</Row> : <></>}
+                    {step === 0 || !codigo ? <Row as='a' href="/login" md={12} xl={12} lg={12} style={{fontSize: '1rem'}} className={`mt-1 text-${theme === 'light' ? 'dark' : 'light'}`}>voltar para login</Row> : <></>}
                 </Card.Header>
                 <Card.Body className="card-body d-flex align-items-center flex-column">
                 {   step === 0 || !codigo ?

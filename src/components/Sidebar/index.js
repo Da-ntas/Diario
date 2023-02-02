@@ -19,7 +19,10 @@ const ProfileDiv = styled.div`
 
 const Sidebar = ({setFlagSidebar, coverImage, profileImage}) => {
     const handleLogout = () => {
+        let oldTheme = localStorage.getItem('theme');
         localStorage.clear();
+
+        localStorage.setItem('theme', oldTheme);
     }
 
     return(

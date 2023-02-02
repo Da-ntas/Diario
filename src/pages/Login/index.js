@@ -6,7 +6,7 @@ import Panel from "../../components/Panel";
 
 const Login = ({handleThemeChange}) => {
     const [step, setStep] = useState(0);
-    const [email, setEmail] = useState(null);
+    const [email, setEmail] = useState(localStorage.getItem('email') || null);
     const [password, setPassword] = useState(null);
     localStorage.removeItem('token')
 

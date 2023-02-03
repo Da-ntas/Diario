@@ -142,7 +142,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: var(${props => props.theme === 'light' ? "--card-light" : "--card-dark"});
         border: 1px solid var(${props => props.theme === 'light' ? "--border-light" : "--border-dark"});
         border-radius: 10px;
-        width: 25%;
+        width: 30%;
     }
 
     .card-header{
@@ -208,6 +208,10 @@ const GlobalStyle = createGlobalStyle`
     //button
     .btn{
       min-width: 8rem;
+      max-width: 8rem;
+    }
+    .btn-close{
+      background-color: white;
     }
 
     //sidebar
@@ -257,6 +261,13 @@ const GlobalStyle = createGlobalStyle`
       }
     }
 
+    @media screen and (max-width: 431px) {
+      .btn-preview{
+        margin-bottom: 10px;
+        margin-left: 25px;
+      }
+    }
+
     .list-sidebar{
       list-style: none;
       font-size: 1.5rem;
@@ -286,6 +297,20 @@ const GlobalStyle = createGlobalStyle`
       overflow: hidden;
       text-overflow: ellipsis;
     }    
+
+    //flexbox-fix
+    .flexbox-fix:nth-child(4){
+      display: none !important;
+    }
+
+    #tipo-capa-diario{
+      color: var(${props => props.theme === 'light' ? "--text-secundario-light" : "--text-secundario-dark"});
+      background-color: var(${props => props.theme === 'light' ? "--card-light" : "--card-dark"});
+    }
+
+    .preview:hover{
+      background: ${props => props.theme === 'light' ? "rgba(241, 229, 199,0.4)" : "rgba(0,0,0,0.2)"}
+    }
 `
 
 export default GlobalStyle;

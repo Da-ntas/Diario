@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment, useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import styled from "styled-components";
@@ -48,14 +49,25 @@ const Header = ({title, type, imageURL, user}) => {
                     </div>
                     <Col className="d-flex align-items-center justify-content-center position-absolute flex-column" style={{maxWidth: 500, top: 20, left: 20, right: 0, marginLeft: 'auto', marginRight: 'auto', zIndex: 4}}>
                         <Row className="d-flex">
-                            <Col className="mt-1 ml-">
+                            <Col className="mt-1" style={{whiteSpace: 'nowrap'}}>
                                 <h1>{title || "Diarios"}</h1>
                             </Col>
                             <Col className="d-flex align-items-center user-select-none">
-                                {hasIcon.includes(type) ? <img src={type === 'diario' ? getImage() : edit} alt="" style={{width: 30, cursor: 'pointer'}}/> : <></>}
+                                {hasIcon.includes(type) ? 
+                                    type && type === 'diario' ? 
+                                        <a href="/diario/criar">
+                                            <img as='a' href='/diario/criar' src={getImage()} alt="" style={{width: 30, cursor: 'pointer'}}/>
+                                        </a>
+                                        :
+                                        <a href="/diario">
+                                            <img as='a' href='/diario/criar' src={edit} alt="" style={{width: 30, cursor: 'pointer'}}/>
+                                        </a>
+                                    :
+                                    <></>
+                                }
                             </Col>
                         </Row>
-                        <Row className="w-50"><hr /></Row>
+                        <Row className="w-75"><hr /></Row>
                     </Col>
                 </Col>
                 <Col md={3} xl={3} lg={3} className="d-flex justify-content-end user-info position-absolute" style={{top: 20, right: 20}}>

@@ -303,9 +303,10 @@ const GlobalStyle = createGlobalStyle`
       display: none !important;
     }
 
-    #tipo-capa-diario{
+    #tipo-capa-diario,
+    #tema-do-diario{
       color: var(${props => props.theme === 'light' ? "--text-secundario-light" : "--text-secundario-dark"});
-      background-color: var(${props => props.theme === 'light' ? "--card-light" : "--card-dark"});
+      background-color: ${props => props.theme === 'light' ? "#FBF4E2" : "#5a7d8a"}
     }
 
     .preview:hover{

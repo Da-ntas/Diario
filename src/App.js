@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useState }  from "react";
-import { Container, Nav } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,6 +7,7 @@ import {
   Navigate
 } from "react-router-dom";
 import GlobalStyle from "./styles/global";
+
 const Login = lazy(() => import("./pages/Login"));
 const RecuperarSenha = lazy(() => import("./pages/RecuperarSenha"));
 const CriarConta = lazy(() => import("./pages/CriarConta"));
